@@ -1,0 +1,104 @@
+data: dataset/OODCV2023/train
+weights: null
+model: eva02_large_patch14_448.mim_in22k_ft_in22k_in1k
+pretrained_cfg: {
+  "file": pretrained/eva02_L_pt_in21k_medft_in21k_ft_in1k_p14.pt,
+  'first_conv': 'patch_embed.proj', 'classifier': 'head',
+}
+model_type: timm
+initial_checkpoint: ''
+resume: ''
+no_resume_opt: false
+num_classes: 10
+head_num: 1
+# img_size: 384
+input_size:
+- 3
+- 448
+- 448
+crop_pct: null
+# -1:水平和垂直翻转;0:垂直翻转;1:水平翻转:2:不进行翻转 [-1,0,1] [1]
+train_flips: []
+val_flips: []
+batch_size: 4
+att_pattern: null
+drop: 0.5
+multi_drop: 0.0
+drop_path: 0.0
+drop_block: null
+focal_loss: false
+weighted: false
+soft_ce_loss: false
+fire_ce_loss: true
+fire_focal_loss: false
+asl_loss: false
+sce_loss: false
+multi_color_loss: false
+imbalance_sampler: false
+aa: null
+ssrprob: 0.5
+shift_limit:
+- -0.0625
+- 0.0625
+scale_limit:
+- -0.1
+- 0.1
+rotate_limit:
+- -45
+- 45
+border_mode: constant # reflect constant
+hflip: 0.5
+gdprob: 0.5
+gdratio: 0.2
+rgsprob: 0.5
+rgsgrid: 2
+reprob: 0.5
+remode: pixel
+min_area: 0.02
+max_area: 0.1
+recount: 5
+ycprob: 0.5
+cur_prob: 0.0
+dst_size: 64
+cur_num_inner: 5
+mixup: 0.5
+cutmix: 0.5
+cutmix_minmax: null
+mixup_prob: 0.5
+mixup_switch_prob: 0.5
+mixup_mode: batch
+mixup_off_epoch: 0
+smoothing: 0.01
+opt: adamw
+opt_eps: 1.0e-08
+momentum: 0.9
+weight_decay: 0.0001
+clip_grad: null
+clip_mode: norm
+sched: cosine
+lr: 1.0e-5
+warmup_lr: 1.0e-05
+min_lr: 1.0e-07
+epochs: 30
+start_epoch: null
+decay_epochs: 30
+warmup_epochs: 0
+cooldown_epochs: 10
+decay_rate: 0.1
+sync_bn: false
+dist_bn: reduce
+split_bn: false
+model_ema: false
+model_ema_force_cpu: false
+model_ema_decay: 0.9998
+seed: 42
+log_interval: 200
+workers: 8
+num_gpu: 1
+save_images: true
+amp: true
+val_amp: false
+prefetcher: false
+output: output
+eval_metric: mf1
+local_rank: 0
