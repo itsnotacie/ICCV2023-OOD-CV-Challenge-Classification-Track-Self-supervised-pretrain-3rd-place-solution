@@ -1,0 +1,6 @@
+pyyaml
+timm==0.5.4
+opencv-python==4.5.3.56
+opencv_python_headless==4.5.3.56
+tensorboardX
+albumentations
